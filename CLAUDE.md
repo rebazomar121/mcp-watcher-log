@@ -14,13 +14,16 @@ npm start            # Run the MCP server
 
 This is an MCP (Model Context Protocol) server that watches development logs for Expo, Node.js, and Next.js. It uses stdio transport for communication with Claude Code.
 
-**Single-file implementation**: `src/index.ts` contains the entire server with six registered tools:
+**Single-file implementation**: `src/index.ts` contains the entire server with nine registered tools:
 - `get_logs` - Reads recent lines from a log file using `tail`
 - `get_errors` - Greps for error/warning patterns
 - `search_logs` - Searches logs for a given pattern
 - `clear_logs` - Truncates the log file
 - `setup_capture` - Returns shell commands to capture logs for a project type
 - `list_sources` - Lists all available log sources and their status
+- `watch_logs` - Real-time log streaming with byte position tracking for incremental updates
+- `filter_logs` - Advanced filtering by severity (error/warn/info/debug), time range, and custom patterns
+- `log_stats` - Analytics including severity breakdown, top recurring errors, and hourly activity timeline
 
 **Supported Log Sources**:
 | Source | File Path |
